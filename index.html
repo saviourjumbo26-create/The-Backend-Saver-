@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOTE: Haute Couture Collection 2026</title>
+    <!-- Tailwind CSS for sleek layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Premium Interface Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans relative overflow-x-hidden">
+
+    <!-- THE PERFECT TOUCH: Fullscreen Ambient Fashion Runway Video Background -->
+    <div class="fixed inset-0 -z-10 w-full h-full overflow-hidden opacity-30">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-backlight-modeling-40049-large.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="glass sticky top-0 z-40 w-full py-4 px-6 flex justify-between items-center border-b border-slate-800">
+        <div class="text-xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-pink-500 to-purple-400">
+            ATELIER NOIR
+        </div>
+        <!-- Language Selector Button -->
+        <button onclick="toggleLanguage()" id="langBtn" class="px-4 py-1.5 rounded-full border border-slate-700 bg-slate-900/50 hover:bg-slate-800 text-xs font-bold uppercase tracking-wider transition">
+            ESPAÑOL
+        </button>
+    </nav>
+
+    <!-- Main Dynamic Content Container -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        
+        <!-- Header Text -->
+        <header class="text-center mb-16">
+            <span id="subTitle" class="text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold">Public Choice Awards 2026</span>
+            <h1 id="mainTitle" class="text-4xl md:text-6xl font-light tracking-tight mt-2 mb-4">
+                Vote for your Favorite <span class="font-serif italic text-pink-400">Design</span>
+            </h1>
+            <p id="descText" class="text-slate-400 max-w-xl mx-auto text-sm md:text-base">
+                Cast your vote to decide which look anchors the upcoming collection finale. One verified submission per person.
+            </p>
+        </header>
+
+        <!-- Dynamic Live Leaderboard Component (The perfect interaction add-on) -->
+        <div class="glass max-w-2xl mx-auto mb-16 p-6 rounded-2xl">
+            <h3 id="liveResultsTitle" class="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-4 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Live Audited Standings
+            </h3>
+            <div class="space-y-4">
+                <div>
+                    <div class="flex justify-between text-xs font-medium mb-1">
+                        <span>LOOK 01: Cyberpunk Avant-Garde</span>
+                        <span id="countLook1">58%</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-amber-400 to-pink-500 h-full w-[58%] transition-all duration-1000"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-medium mb-1">
+                        <span>LOOK 02: Neon Minimalist Robe</span>
+                        <span id="countLook2">42%</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-r from-pink-500 to-purple-500 h-full w-[42%] transition-all duration-1000"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fashion Items Grid Layout -->
+        <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            
+            <!-- LOOK 01 Card -->
+            <div class="glass rounded-2xl overflow-hidden group shadow-2xl">
+                <div class="h-[400px] overflow-hidden relative bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=600" alt="Look 1" class="w-full h-full object-cover object-top transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-amber-400 text-slate-950 px-3 py-1 text-xs uppercase font-black tracking-widest rounded">LOOK 01</span>
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-medium tracking-wide mb-1">Cyberpunk Avant-Garde</h3>
+                    <p id="look1Desc" class="text-xs text-slate-400 mb-6">Hand-woven technical fabric details accented with interactive neon piping elements.</p>
+                    <button onclick="openAuthModal('look_01')" class="voteBtn w-full py-3 bg-gradient-to-r from-amber-400 to-pink-500 hover:from-amber-500 hover:to-pink-600 text-slate-950 font-bold tracking-widest text-xs uppercase rounded-xl transition shadow-lg">
+                        Cast Vote
+                    </button>
+                </div>
+            </div>
+
+            <!-- LOOK 02 Card -->
+            <div class="glass rounded-2xl overflow-hidden group shadow-2xl">
+                <div class="h-[400px] overflow-hidden relative bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=600" alt="Look 2" class="w-full h-full object-cover object-top transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <span class="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 text-xs uppercase font-black tracking-widest rounded">LOOK 02</span>
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-medium tracking-wide mb-1">Neon Minimalist Robe</h3>
+                    <p id="look2Desc" class="text-xs text-slate-400 mb-6">Deconstructed organic silk materials styled with oversized structural industrial patterns.</p>
+                    <button onclick="openAuthModal('look_02')" class="voteBtn w-full py-3 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold tracking-widest text-xs uppercase rounded-xl transition shadow-lg">
+                        Cast Vote
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- UNIFIED AUTHENTICATION GATEWAY MODAL -->
+    <div id="authModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md flex items-center justify-center hidden opacity-0 transition-opacity duration-300 z-50">
+        <div class="glass p-8 rounded-2xl max-w-md w-full mx-4 shadow-2xl relative">
+            <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            
+            <h2 id="modalTitle" class="text-2xl font-light text-center tracking-tight mb-2">Secure Verification</h2>
+            <p id="modalDesc" class="text-slate-400 text-xs text-center mb-6">Authenticate via social account or standard credential to lock in your vote.</p>
+            
+            <!-- Standard Password Login Block Form -->
+            <form action="/auth/local-vote" method="POST" class="space-y-3 mb-6">
+                <input type="hidden" id="selectedLookField" name="chosenLook">
+                <div>
+                    <input type="email" name="email" required placeholder="Email Address" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-pink-500 transition">
+                </div>
+                <div class="relative">
+                    <input type="password" name="password" required placeholder="Password" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-pink-500 transition">
+                </div>
+                <button type="submit" id="submitLocalBtn" class="w-full py-2.5 bg-slate-100 hover:bg-white text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl transition">
+                    Verify & Submit
+                </button>
+            </form>
+
+            <div class="relative flex py-2 items-center my-4">
+                <div class="flex-grow border-t border-slate-800"></div>
+                <span id="orText" class="flex-shrink mx-4 text-slate-500 text-xs uppercase tracking-widest">Or Secure Via</span>
+                <div class="flex-grow border-t border-slate-800"></div>
+            </div>
+
+            <!-- Social Provider Links -->
+            <div class="grid grid-cols-2 gap-4">
+                <a id="fbLink" href="#" class="flex items-center justify-center gap-2 py-2.5 bg-[#1877F2] hover:opacity-90 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a id="tiktokLink" href="#" class="flex items-center justify-center gap-2 py-2.5 bg-black hover:bg-slate-900 text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-slate-800 transition">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌐 TRANSLATION ENGINE SCRIPT -->
+    <script>
+        let currentLang = 'EN';
+        
+        const dictionary = {
+            EN: {
+                toggleTo: 'ESPAÑOL',
+                subTitle: 'Public Choice Awards 2026',
+                mainTitle: 'Vote for your Favorite <span class="font-serif italic text-pink-400">Design</span>',
+                descText: 'Cast your vote to decide which look anchors the upcoming collection finale. One verified submission per person.',
+                liveResultsTitle: 'Live Audited Standings',
+                voteBtn: 'Cast Vote',
+                look1Desc: 'Hand-woven technical fabric details accented with interactive neon piping elements.',
+                look2Desc: 'Deconstructed organic silk materials styled with oversized structural industrial patterns.',
+                modalTitle: 'Secure Verification',
+                modalDesc: 'Authenticate via social account or standard credential to lock in your vote.',
+                orText: 'Or Secure Via',
+                submitLocalBtn: 'Verify & Submit'
+            },
+            ES: {
+                toggleTo: 'ENGLISH',
+                subTitle: 'Premios de la Audiencia 2026',
+                mainTitle: 'Vota por tu <span class="font-serif italic text-pink-400">Diseño</span> Favorito',
+                descText: 'Emite tu voto para decidir qué diseño cerrará el gran final de la colección. Solo se permite una votación verificada por persona.',
+                liveResultsTitle: 'Resultados En Vivo',
+                voteBtn: 'Votar Ahora',
+                look1Desc: 'Detalles de tela técnica tejida a mano realzados con elementos de ribetes de neón interactivos.',
+                look2Desc: 'Materiales de seda orgánica deconstruidos combinados con patrones industriales de gran tamaño.',
+                modalTitle: 'Verificación Segura',
+                modalDesc: 'Inicia sesión con tu cuenta social o credencial estándar para registrar tu voto.',
+                orText: 'O Conéctate Con',
+                submitLocalBtn: 'Verificar y Enviar'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'EN' ? 'ES' : 'EN';
+            const data = dictionary[currentLang];
+            
+            document.getElementById('langBtn').innerText = data.toggleTo;
+            document.getElementById('subTitle').innerText = data.subTitle;
+            document.getElementById('mainTitle').innerHTML = data.mainTitle;
+            document.getElementById('descText').innerText = data.descText;
+            document.getElementById('liveResultsTitle').innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> ${data.liveResultsTitle}`;
+            document.getElementById('look1Desc').innerText = data.look1Desc;
+            document.getElementById('look2Desc').innerText = data.look2Desc;
+            document.getElementById('modalTitle').innerText = data.modalTitle;
+            document.getElementById('modalDesc').innerText = data.modalDesc;
+            document.getElementById('orText').innerText = data.orText;
+            document.getElementById('submitLocalBtn').innerText = data.submitLocalBtn;
+            
+            document.querySelectorAll('.voteBtn').forEach(btn => btn.innerText = data.voteBtn);
+        }
+
+        // Modal Action Scripts
+        function openAuthModal(lookId) {
+            const modal = document.getElementById('authModal');
+            document.getElementById('selectedLookField').value = lookId;
+            
+            // Set URLs dynamically for the backend route handlers
+            document.getElementById('fbLink').href = `/auth/facebook?look=${lookId}`;
+            document.getElementById('tiktokLink').href = `/auth/tiktok?look=${lookId}`;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+
+        function closeAuthModal() {
+            const modal = document.getElementById('authModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+    </script>
+</body>
+</html>
